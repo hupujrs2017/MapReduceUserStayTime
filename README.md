@@ -9,6 +9,6 @@ mapreduce程序，用于计算用户在各个页面停留时间
 3.异常处理、工具等。
 
 也许看一张简单的程序流程图能更好的理解这个计算过程：
-![image](https://github.com/hupujrs2017/MapReduceUserStayTime/blob/master/src/main/resources/userstaytime1.png)
+![image](https://github.com/hupujrs2017/MapReduceUserStayTime/blob/master/src/main/resources/userstaytime.png)
 执行该mapreduce的脚本：
 hadoop jar MapReduceUserStayTime-1.0-SNAPSHOT-with-dependencies.jar com.yangyz.ubt.UserStayTime 2017-08-20 09-18-24 ;
