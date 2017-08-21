@@ -11,29 +11,4 @@ mapreduce程序，用于计算用户在各个页面停留时间
 也许看一张简单的程序流程图能更好的理解这个计算过程：
 ![image](https://github.com/hupujrs2017/MapReduceUserStayTime/blob/master/src/main/resources/userstaytime1.png)
 执行该mapreduce的脚本：
-hive -e"
-use tmp_diydb;
-DROP TABLE IF EXISTS tmp_userstaytime;
-CREATE TABLE IF NOT EXISTS tmp_userstaytime (
- value string
- 
-)
-ROW FORMAT DELIMITED 
-FIELDS TERMINATED BY '\t' 
-STORED AS INPUTFORMAT 
-'org.apache.hadoop.mapred.TextInputFormat' 
-OUTPUTFORMAT 
-'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat';
-
-"
-
-hadoop jar MapReduceUserStayTime-1.0-SNAPSHOT-with-dependencies.jar com.yangyz.ubt.UserStayTime \
-2017-08-20 \
-09-18-24 ;
-
-hive -e "
-use tmp_diydb;
-LOAD DATA INPATH '/tmp/ubt_pageview_userStayTime_outPut/*'
-OVERWRITE INTO TABLE tmp_userstaytime;
-select * from tmp_diydb.tmp_userstaytime
-"
+hadoop jar MapReduceUserStayTime-1.0-SNAPSHOT-with-dependencies.jar com.yangyz.ubt.UserStayTime 2017-08-20 09-18-24 ;
